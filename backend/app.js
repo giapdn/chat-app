@@ -1,51 +1,51 @@
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+import path from "path";
+import favicon from "serve-favicon";
+import apiRoutes from "./app/routes/api.js";
 
-const PORT = process.PORT || 3000;
+//some constant
 const app = express();
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-//Some config
-dotenv.config();
 
-// This is list of imported route
-import authRoutes from "./app/routes/Auth.routes.js";
-import mongoCn from "./app/database/Mongo.database.js";
-
-//db
-mongoCn();
-
-//This is list of thing the app used
-app.use(cors()); //Cross site origin resource
-app.use(cookieParser());
+//This is list of global middleware the app used
+app.use(bodyParser.json());
+app.use(cookieParser()); //middleware này giúp tạo dc cookie
+app.use(express.json()); //MidlleWare body parser để có thể đọc dữ liệu từ req
 app.use(
-  // XSS Protection
-  helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'"],
-        imgSrc: ["'self'", "data:", "http://localhost:3000"],
-        connectSrc: ["'self'", "http://localhost:27017"],
-      },
-    },
-  })
+    cors({
+        origin: "http://localhost:5173",
+        credentials: true, //Cho phép cookie !
+    })
+); //Cross site origin resource
+app.use(
+    // XSS Protection
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                scriptSrc: ["'self'", "'unsafe-inline'"],
+                imgSrc: ["'self'", "data:", "http://localhost:3000"],
+                connectSrc: ["'self'", "http://localhost:27017"],
+            },
+        },
+    })
 );
-app.use(express.json()); //MidleWare
 
-//Set something
+//Set view engine
 app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "app", "views"));
 
-//This is the area for routing
+//Routing
 app.get("/", (req, res) => {
-  res.render("welcome", { auth: "Đỗ Nguyên Giáp" });
+    res.render("welcome", {auth: "Đỗ Nguyên Giáp"});
 });
+app.use("/api", apiRoutes);
 
-app.use("/auth", authRoutes);
 
-//This is the start server method
-app.listen(PORT, () => {
-  console.log(`app running on [http://localhost:${PORT}]`);
-});
+export default app;
+

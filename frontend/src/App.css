@@ -1,5 +1,4 @@
 body {
-  padding: 3%;
   background-color: #f5f5f5;
   color: white;
 }
@@ -14,7 +13,7 @@ body {
 /* ===== MENU ===== */
 .menu {
   float: left;
-  height: 700px;
+  height: 773px;
   width: 70px;
   background: #4768b5;
   background: -webkit-linear-gradient(#4768b5, #35488e);
@@ -55,7 +54,7 @@ body {
 
 .discussions {
   width: 35%;
-  height: 700px;
+  height: 773px;
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   background-color: #87a3ec;
@@ -210,6 +209,8 @@ body {
 
 .chat .messages-chat {
   padding: 25px 35px;
+  background-color: #5a18ae;
+  height: 683px;
 }
 
 .chat .messages-chat .message {
@@ -233,7 +234,7 @@ body {
 
 .chat .messages-chat .text {
   margin: 0 35px;
-  background-color: #f6f6f6;
+  background-color: #4b1d85;
   padding: 15px;
   border-radius: 12px;
 }
@@ -261,17 +262,17 @@ body {
 }
 
 .response .text {
-  background-color: #e3effd !important;
+  background-color: #b52386 !important;
 }
 
 .footer-chat {
-  width: calc(65% - 66px);
+  width: calc(65% - 85px);
   height: 80px;
   display: flex;
   align-items: center;
   position: absolute;
   bottom: 0;
-  background-color: transparent;
+  background-color: #aa6cc6;
   border-top: 2px solid #eee;
 }
 

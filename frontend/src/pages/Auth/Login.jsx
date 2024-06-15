@@ -15,11 +15,12 @@ const Login = () => {
       setErr("Please fill all the fields");
     } else {
       await axiosInstance
-        .post("/auth/login", {
+        .post("/api/v1/auth/login", {
           email: email,
           password: password,
         })
         .then(() => {
+          console.log(document.cookie);
           navigate("/chat");
         })
         .catch((err) => {

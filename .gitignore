@@ -1,0 +1,58 @@
+# Ignore node_modules folders
+**/node_modules/
+
+# Ignore log files
+**/logs/
+**/*.log
+**/npm-debug.log*
+
+# Ignore environment variable files
+**/.env
+
+# Ignore OS specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build folders
+**/dist/
+**/build/
+
+# Ignore temporary files
+**/tmp/
+**/temp/
+*.swp
+*.swo
+*.bak
+
+# Ignore coverage reports
+**/coverage/
+
+# Ignore dependency directories
+**/vendor/
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore compiled files
+*.out
+*.o
+*.pyc
+*.pyo
+*.class
+
+# Ignore yarn lock files
+**/yarn.lock
+**/package-lock.json
+
+# Ignore various IDE and editor files
+**/.idea/
+**/.vscode/
+**/.project
+**/.classpath
+**/.c9/
+**/*.launch
+**/.settings/
+**/.metadata/
+**/*.sublime-workspace
+**/*.sublime-project

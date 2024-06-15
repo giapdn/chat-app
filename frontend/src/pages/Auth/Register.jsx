@@ -21,18 +21,17 @@ const Register = () => {
       setErr("Please fill all the fields");
     } else {
       await axiosInstance
-        .post("/auth/register", {
+        .post("/api/v1/auth/register", {
           name: name,
           email: email,
           password: password,
         })
         .then((result) => {
-          if (result.status === 200) {
-            navigate("/login");
-          }
+          console.log(result);
+          navigate("/login");
         })
         .catch((err) => {
-          console.log(err.response.data);
+          console.log(err);
         });
     }
   };

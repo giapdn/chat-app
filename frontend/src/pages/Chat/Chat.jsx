@@ -4,7 +4,7 @@ import SideBar from "../../components/layouts/SideBar";
 
 const Chat = () => {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <SideBar />
 
