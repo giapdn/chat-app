@@ -1,0 +1,71 @@
+# =========================
+# Dependencies
+# =========================
+**/node_modules/
+**/.pnpm-store/
+**/.yarn/
+
+# =========================
+# Build outputs
+# =========================
+app/backend/dist/
+app/frontend/dist/
+app/frontend/build/
+app/frontend/out/
+app/frontend/.next/
+app/frontend/.vite/
+
+# =========================
+# TypeScript
+# =========================
+**/*.tsbuildinfo
+
+# =========================
+# Env files
+# =========================
+**/.env
+**/.env.*
+!**/.env.example
+
+# =========================
+# Logs
+# =========================
+**/logs/
+**/*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Testing
+# =========================
+app/frontend/coverage/
+app/frontend/cypress/videos/
+app/frontend/cypress/screenshots/
+app/frontend/playwright-report/
+
+# =========================
+# Backend runtime
+# =========================
+app/backend/uploads/
+app/backend/tmp/
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Misc
+# =========================
+*.local
